@@ -11,16 +11,39 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.compare"
+        "onCommand:extension.compareProperties", 
+        "onCommand:extension.compareYaml"
     ],
     "main": "./out/extension",
     "contributes": {
-        "commands": [
-            {
-                "command": "extension.compare",
-                "title": "Compare files"
+        "commands": [{
+                "command": "extension.compareProperties",
+                "title": "Compare with Properties..."
+            }, {
+                "command": "extension.compareYaml",
+                "title": "Compare with YAML..."
             }
-        ]
+        ],
+        "menus": {
+            "explorer/context": [{
+                "command": "extension.compareProperties",
+                "when": "resourceLangId == properties",
+                "group": "awesomecompare"
+            },{
+                "command": "extension.compareYaml",
+                "when": "resourceLangId == yaml",
+                "group": "awesomecompare"
+            }],
+            "editor/context": [{
+                "command": "extension.compareProperties",
+                "when": "resourceLangId == properties",
+                "group": "awesomecompare"
+            },{
+                "command": "extension.compareYaml",
+                "when": "resourceLangId == yaml",
+                "group": "awesomecompare"
+            }]
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
