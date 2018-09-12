@@ -1,9 +1,8 @@
+import {Uri} from 'vscode';
 import {FileCompare} from './fileCompare';
 
 export class PropertiesCompare extends FileCompare {
-    
-    constructor() {
-        super('Properties', ['properties']);
+    constructor(first: Uri) {
+        super('Properties', ['properties'], first);
     }
-
 }
